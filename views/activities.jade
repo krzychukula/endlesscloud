@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  ul
+    each val, index in activities
+      li= index
+        ul
+          each value, j in val
+            li= j + ': ' + value
