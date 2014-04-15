@@ -21,6 +21,15 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+if(app.get('env') === "development"){
+    var livereload = require('better-livereload');
+    var server = livereload.createServer();
+    server.watch(__dirname + '/public');
+    app.use(require('connect-livereload')({
+      port: 35729
+    }));
+}
+
 app.use('/', routes);
 app.use('/users', users);
 
@@ -43,6 +52,7 @@ if (app.get('env') === 'development') {
             error: err
         });
     });
+
 }
 
 // production error handler
