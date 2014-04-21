@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function(){
     time: 0,
     timeDiff: 0,
     mouse: new Mouse(canvas),
-    friction: 0.9
+    friction: 0.95
   }
 
   function update(entity, target, timeDiff) {
@@ -21,12 +21,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var angle = Math.atan2(dy, dx);
 
-    entity.vx = Math.cos(angle) * entity.speed// * timeDiff;
-    entity.vy = Math.sin(angle) * entity.speed// * timeDiff;
+    entity.vx += Math.cos(angle) * entity.speed * timeDiff/100;
+    entity.vy += Math.sin(angle) * entity.speed * timeDiff/100;
 
     //entity.angle = angle;
-    entity.x += entity.vx * game.friction;
-    entity.y += entity.vy * game.friction;
+    entity.vx = entity.vx * game.friction;
+    entity.vy = entity.vy * game.friction;
+    entity.x += entity.vx;
+    entity.y += entity.vy;
 
   };
 
@@ -56,7 +58,10 @@ document.addEventListener('DOMContentLoaded', function(){
     if(!game.time){
       game.time = currentTime;
     }
-    game.timeDiff = game.time - currentTime;
+    game.timeDiff = currentTime - game.time;
+    game.time = currentTime;
+
+    console.log(game.timeDiff);
 
     renderer.clear(game.entities);
 
