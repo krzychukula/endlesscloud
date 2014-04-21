@@ -39,7 +39,7 @@
     //ctx.stroke();
     ctx.font="14px Verdana";
     ctx.fillStyle="white";
-    ctx.fillText(box.text + ' x:' + box.x + ' y:' + box.y , 15, 25);
+    ctx.fillText(box.text + ' x:' +box.vx.toFixed(1) + ' y:' + box.vy.toFixed(1) , 15, 25);
 
     ctx.restore();
   };

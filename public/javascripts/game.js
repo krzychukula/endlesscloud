@@ -10,22 +10,23 @@ document.addEventListener('DOMContentLoaded', function(){
     entities: [ new Box("mouse"), new Box("follow") ],
     time: 0,
     timeDiff: 0,
-    mouse: new Mouse(canvas)
+    mouse: new Mouse(canvas),
+    friction: 0.9
   }
 
-  function update(entity, timeDiff, target) {
+  function update(entity, target, timeDiff) {
 
-    var dx = target.x - entity.x;
-    var dy = target.y - entity.y;
+    var dx = entity.x - target.x;
+    var dy = entity.y - target.y;
 
     var angle = Math.atan2(dy, dx);
 
-    entity.vx = Math.cos(angle) * entity.speed;
-    entity.vy = Math.sin(angle) * entity.speed;
+    entity.vx = Math.cos(angle) * entity.speed// * timeDiff;
+    entity.vy = Math.sin(angle) * entity.speed// * timeDiff;
 
     //entity.angle = angle;
-    entity.x += entity.vx * timeDiff;
-    entity.y += entity.vy * timeDiff;
+    entity.x += entity.vx * game.friction;
+    entity.y += entity.vy * game.friction;
 
   };
 
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function(){
     renderer.clear(game.entities);
 
     game.entities.forEach(function(entity){
-      update(entity, game.timeDiff, game.mouse);
+      update(entity, game.mouse, game.timeDiff);
       //checkWorld(entity);
     });
     game.entities[0].x = game.mouse.x;
