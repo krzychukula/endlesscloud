@@ -7,11 +7,27 @@ document.addEventListener('DOMContentLoaded', function(){
 
   var game = {
     aspectRatio: 4/3,
-    entities: [ new Box("Resize Me") ],
+    entities: [ new Box("mouse"), new Box("follow") ],
     time: 0,
     timeDiff: 0,
     mouse: new Mouse(canvas)
   }
+
+  function update(entity, timeDiff, target) {
+
+    var dx = target.x - entity.x;
+    var dy = target.y - entity.y;
+
+    var angle = Math.atan2(dy, dx);
+
+    entity.vx = Math.cos(angle) * entity.speed;
+    entity.vy = Math.sin(angle) * entity.speed;
+
+    //entity.angle = angle;
+    entity.x += entity.vx * timeDiff;
+    entity.y += entity.vy * timeDiff;
+
+  };
 
   function checkWorld (entity) {
     if(entity.x < 0){
@@ -44,9 +60,11 @@ document.addEventListener('DOMContentLoaded', function(){
     renderer.clear(game.entities);
 
     game.entities.forEach(function(entity){
-      entity.update(game.timeDiff, game.mouse);
-      checkWorld(entity)
+      update(entity, game.timeDiff, game.mouse);
+      //checkWorld(entity);
     });
+    game.entities[0].x = game.mouse.x;
+    game.entities[0].y = game.mouse.y;
 
     renderer.draw(game.entities);
   }

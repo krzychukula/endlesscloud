@@ -11,6 +11,8 @@
   Renderer.prototype.clear = function(entities) {
     var rend = this;
 
+    this.canvas.width = this.canvas.width;
+
     entities.forEach(function(entity){
       rend['clear_'+entity.type](entity);
     });
@@ -37,7 +39,7 @@
     //ctx.stroke();
     ctx.font="14px Verdana";
     ctx.fillStyle="white";
-    ctx.fillText(box.text, 15, 25);
+    ctx.fillText(box.text + ' x:' + box.x + ' y:' + box.y , 15, 25);
 
     ctx.restore();
   };
