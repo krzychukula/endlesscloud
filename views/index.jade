@@ -1,11 +1,7 @@
 extends layout
 
 block content
-  canvas(id="game" width="1024" height="640")
+  div(id="game")
 
-  script(src="javascripts/rAF.js")
-  script(src="javascripts/resizer.js")
-  script(src="javascripts/box.js")
-  script(src="javascripts/mouse.js")
-  script(src="javascripts/renderer.js")
-  script(src="javascripts/game.js")
+  script(src="javascripts/lib/phaser.js")
+  script(src="javascripts/follow.js")
