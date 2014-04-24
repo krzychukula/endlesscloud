@@ -61,7 +61,7 @@ var Follower = function(game, x, y, target) {
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
 
     // Define constants that affect motion
-    this.MAX_SPEED = 30; // pixels/second
+    this.MAX_SPEED = 250; // pixels/second
     this.MIN_DISTANCE = 32; // pixels
 };
 
@@ -75,17 +75,12 @@ Follower.prototype.update = function() {
 
     // If the distance > MIN_DISTANCE then move
     if (distance > this.MIN_DISTANCE) {
-        // Calculate the angle to the target
+        var dx =this.target.worldX - this.x;
+        var dy =this.target.worldY - this.y;
+        this.rotation = Math.atan2(dy, dx) + this.game.math.degToRad(90);
+        //this.angle = this.game.math.angleBetween(this.x, this.y, this.target.x, this.target.y) * 180 / Math.PI;
 
-        //why not working? http://gamemechanicexplorer.com/#follow-1
-
-        // var rotation = this.game.math.angleBetween(this.x, this.y, this.target.x, this.target.y);
-
-        // // Calculate velocity vector based on rotation and this.MAX_SPEED
-        // this.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
-        // this.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
-
-        this.game.physics.arcade.moveToPointer(this, 300);
+        this.game.physics.arcade.moveToPointer(this, this.MAX_SPEED);
 
     } else {
         this.body.velocity.setTo(0, 0);
