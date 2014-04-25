@@ -5,6 +5,7 @@ var GameState = function(game) {
 // Load images and sounds
 GameState.prototype.preload = function() {
     this.game.load.image('player', 'assets/gfx/player.png');
+    this.game.load.image('rock', 'assets/gfx/rock.png');
 };
 
 // Setup the example
@@ -13,8 +14,6 @@ GameState.prototype.create = function() {
     this.game.stage.backgroundColor = 0x4488cc;
 
     this.player = new Follower(this.game, this.game.width/2, this.game.height/2, this.game.input)
-
-    // Create a follower
     this.game.add.existing(this.player);
 
     // Simulate a pointer click/tap input at the center of the stage
@@ -22,11 +21,10 @@ GameState.prototype.create = function() {
     this.game.input.x = this.game.width/2;
     this.game.input.y = this.game.height/2;
 
-    // Enable physics on the player
-    this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
+    this.rock = new Rock(this.game, 0, 0);
+    this.game.add.existing(this.rock);
 
-    // Make player collide with world boundaries so he doesn't leave the stage
-    this.player.body.collideWorldBounds = true;
+
 
     // Show FPS
     this.game.time.advancedTiming = true;

@@ -13,6 +13,9 @@ var Follower = function(game, x, y, target) {
     // Enable physics on this object
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
 
+    // Make player collide with world boundaries so he doesn't leave the stage
+    this.body.collideWorldBounds = true;
+
     // Define constants that affect motion
     this.MAX_SPEED = 250; // pixels/second
     this.MIN_DISTANCE = 32; // pixels
