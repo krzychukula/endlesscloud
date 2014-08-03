@@ -2,6 +2,9 @@
   "name": "endlesscloud",
   "version": "0.0.2",
   "private": true,
+  "engines": {
+    "node": "0.10.29"
+  },
   "scripts": {
     "start": "node ./bin/cluster"
   },

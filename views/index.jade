@@ -1,7 +1,18 @@
 extends layout
 
 block content
-  div(id="game")
+	div(id="game")
+	script(async, src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+	<!-- banner-endlesscloud -->
+	ins(class="adsbygoogle",
+			style="display:inline-block;width:728px;height:90px",
+			data-ad-client="ca-pub-0510235722692460",
+			data-ad-slot="4505131983")
+	script.
+		(adsbygoogle = window.adsbygoogle || []).push({});
 
-  script(src="javascripts/lib/phaser.js")
-  script(src="javascripts/follow.js")
+	script(src="javascripts/lib/phaser.js")
+	script(src="javascripts/follow/gamestate.js")
+	script(src="javascripts/follow/follower.js")
+	script(src="javascripts/follow/rock.js")
+	script(src="javascripts/follow/follow.js")
