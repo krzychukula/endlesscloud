@@ -1,1 +1,1 @@
-web: node ./bin/cluster
+web: node --harmony ./bin/koawww
