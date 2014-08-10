@@ -12,6 +12,7 @@ GameState.prototype.preload = function() {
 GameState.prototype.create = function() {
     // Set stage background color
     this.game.stage.backgroundColor = 0x4488cc;
+    this.game.stage.disableVisibilityChange = true;
 
     this.player = new Follower(this.game, this.game.width/2, this.game.height/2, this.game.input)
     this.game.add.existing(this.player);
