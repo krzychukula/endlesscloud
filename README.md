@@ -7,3 +7,13 @@ endlesscloud
 
 Just for fun project without bigger plan
 ========================================
+
+Playing with Node.js, Koa, Phaser...
+
+Instructions
+============
+
+`nvm use`
+`npm install`
+`npm start`
+
