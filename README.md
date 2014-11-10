@@ -13,7 +13,7 @@ Playing with Node.js, Koa, Phaser...
 Instructions
 ============
 
-`nvm use`
-`npm install`
-`npm start`
+1. `nvm use`
+1. `npm install`
+1. `npm start`
 
