@@ -1,5 +1,5 @@
 
-var Rock = function(game, x, y) {
+var Rock = function(game, x, y, speed) {
     Phaser.Sprite.call(this, game, x, y, 'rock');
 
     // Set the pivot point for this sprite to the center
@@ -9,7 +9,7 @@ var Rock = function(game, x, y) {
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
 
     // Define constants that affect motion
-    this.MAX_SPEED = 50; // pixels/second
+    this.MAX_SPEED = speed || 50; // pixels/second
     this.MIN_DISTANCE = 32; // pixels
 
 };
