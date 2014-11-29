@@ -1,5 +1,5 @@
 
-var Rock = function(game, x, y, speed) {
+var Rock = function(game, x, y, speedX, speedY) {
     Phaser.Sprite.call(this, game, x, y, 'rock');
 
     // Set the pivot point for this sprite to the center
@@ -9,7 +9,8 @@ var Rock = function(game, x, y, speed) {
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
 
     // Define constants that affect motion
-    this.MAX_SPEED = speed || 50; // pixels/second
+    this.speedX = speedX || 50; // pixels/second
+    this.speedY = speedY || 50; // pixels/second
     this.MIN_DISTANCE = 32; // pixels
 
 };
@@ -20,7 +21,7 @@ Rock.prototype.constructor = Rock;
 
 Rock.prototype.update = function() {
     // Calculate distance to target
-    this.body.velocity.setTo(this.MAX_SPEED, this.MAX_SPEED);
+    this.body.velocity.setTo(this.speedX, this.speedY);
     // Keep the ship on the screen
     if (this.x > this.game.width) this.x = 0;
     if (this.x < 0) this.x = this.game.width;
