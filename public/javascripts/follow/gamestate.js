@@ -35,6 +35,8 @@ GameState.prototype.create = function() {
     this.fpsText = this.game.add.text(
         20, 20, '', { font: '16px Arial', fill: '#ffffff' }
     );
+
+    this.input.onDown.add(this.onDown, this);
 };
 
 // The update() method is called every frame
@@ -44,6 +46,10 @@ GameState.prototype.update = function() {
         this.fpsText.setText(this.game.time.fps + ' FPS x:'+game.input.x+' y:'+game.input.y);
     }
 };
+
+GameState.prototype.onDown = function(){
+  this.player.revive()
+}
 
 
 function killPlayer(){
