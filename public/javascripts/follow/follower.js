@@ -39,6 +39,7 @@ Follower.prototype.update = function() {
         this.game.physics.arcade.moveToPointer(this, this.MAX_SPEED);
 
     } else {
+      //this.body.velocity.subtract(1, 1).clamp(0, this.MAX_SPEED);
         this.body.velocity.setTo(0, 0);
     }
 };

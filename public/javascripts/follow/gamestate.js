@@ -33,8 +33,13 @@ GameState.prototype.create = function() {
     // Show FPS
     this.game.time.advancedTiming = true;
     this.fpsText = this.game.add.text(
-        20, 20, '', { font: '16px Arial', fill: '#ffffff' }
+        20, this.game.height - 30, '', { font: '16px Arial', fill: '#ffffff' }
     );
+
+    this.surviveText = this.game.add.text(
+        this.game.width/2 - 100, 20, '', { font: '16px Arial', fill: '#ffffff' }
+    );
+    this.startTime = this.game.time.now;
 
     this.input.onDown.add(this.onDown, this);
 };
@@ -45,10 +50,21 @@ GameState.prototype.update = function() {
     if (this.game.time.fps !== 0) {
         this.fpsText.setText(this.game.time.fps + ' FPS x:'+game.input.x+' y:'+game.input.y);
     }
+    if(this.player.alive){
+      this.surviveText.setText('Survived: '+ ~~this.game.time.elapsedSecondsSince(this.startTime));
+    }else{
+      this.surviveText.setText('click to start again');
+    }
+
+
 };
 
-GameState.prototype.onDown = function(){
-  this.player.revive()
+GameState.prototype.onDown = function(point){
+  //console.log(arguments)
+  this.player.x = point.x;
+  this.player.y = point.y;
+  this.player.revive();
+  this.startTime = this.game.time.now;
 }
 
 
