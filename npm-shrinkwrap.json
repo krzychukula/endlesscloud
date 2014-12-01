@@ -223,13 +223,13 @@
       }
     },
     "koa-views": {
-      "version": "2.1.0",
-      "from": "koa-views@2.1.0",
-      "resolved": "https://registry.npmjs.org/koa-views/-/koa-views-2.1.0.tgz",
+      "version": "2.1.1",
+      "from": "koa-views@2.1.1",
+      "resolved": "https://registry.npmjs.org/koa-views/-/koa-views-2.1.1.tgz",
       "dependencies": {
         "co-views": {
           "version": "0.2.0",
-          "from": "co-views@>=0.2.0 <0.3.0",
+          "from": "co-views@~0.2.0",
           "resolved": "https://registry.npmjs.org/co-views/-/co-views-0.2.0.tgz",
           "dependencies": {
             "co-render": {
@@ -239,7 +239,7 @@
               "dependencies": {
                 "consolidate": {
                   "version": "0.9.1",
-                  "from": "consolidate@>=0.9.1 <0.10.0",
+                  "from": "consolidate@~0.9.1",
                   "resolved": "https://registry.npmjs.org/consolidate/-/consolidate-0.9.1.tgz"
                 }
               }
@@ -248,31 +248,32 @@
         },
         "debug": {
           "version": "0.7.4",
-          "from": "debug@>=0.7.4 <0.8.0",
+          "from": "debug@~0.7.4",
           "resolved": "https://registry.npmjs.org/debug/-/debug-0.7.4.tgz"
-        },
-        "deepmerge": {
-          "version": "0.2.7",
-          "from": "deepmerge@>=0.2.7 <0.3.0"
         },
         "koa-send": {
           "version": "1.3.1",
-          "from": "koa-send@>=1.2.4 <2.0.0",
+          "from": "koa-send@^1.2.4",
           "resolved": "https://registry.npmjs.org/koa-send/-/koa-send-1.3.1.tgz",
           "dependencies": {
             "mz": {
-              "version": "1.0.2",
-              "from": "mz@>=1.0.1 <2.0.0",
-              "resolved": "https://registry.npmjs.org/mz/-/mz-1.0.2.tgz",
+              "version": "1.1.0",
+              "from": "mz@^1.0.1",
+              "resolved": "https://registry.npmjs.org/mz/-/mz-1.1.0.tgz",
               "dependencies": {
                 "native-or-bluebird": {
                   "version": "1.1.2",
-                  "from": "native-or-bluebird@>=1.0.0 <2.0.0",
+                  "from": "native-or-bluebird@1",
                   "resolved": "https://registry.npmjs.org/native-or-bluebird/-/native-or-bluebird-1.1.2.tgz"
                 }
               }
             }
           }
+        },
+        "object-assign": {
+          "version": "2.0.0",
+          "from": "object-assign@^2.0.0",
+          "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-2.0.0.tgz"
         }
       }
     },
