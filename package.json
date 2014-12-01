@@ -7,6 +7,7 @@
   },
   "scripts": {
     "start": "node --harmony bin/koawww",
+    "test": "echo 'no test yet';",
     "outdated": "npm outdated --depth 0"
   },
   "dependencies": {

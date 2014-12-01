@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+- '0.11'
+deploy:
+  provider: heroku
+  api_key:
+    secure: fRuqB324OSH3xNEhamkoX+BbG5MWk3iFTBu2Jv6DpPpcQKT9Okk16j3MTUdfPf5UjUpqdvdECQLMVAFJzkjkkhL75gVqQ0UnYi4yDv2qJGl6w+sHB8681xieXykQlsFGkaVSQKPGw7bBmMZN1kb9ep7naRsfrTcCU0/Qq4829EM=
+  app: endlesscloud
+  on:
+    repo: krzychukula/endlesscloud
