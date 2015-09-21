@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var app = require('../koapp');
 
 var server = app.listen(process.env.PORT || 3000, function() {

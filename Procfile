@@ -1,1 +1,1 @@
-web: node --harmony ./bin/koawww
+web: node ./bin/koawww
