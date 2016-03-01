@@ -4,27 +4,3 @@ var app = require('../koapp');
 var server = app.listen(process.env.PORT || 3000, function() {
   console.log('Koa server listening on port ' + server.address().port);
 });
-
-if(process.env.NODE_ENV != 'production'){
-	var flo = require('fb-flo');
-	var path = require('path');
-	var  fs = require('fs');
-
-	var floServer = flo('public', {
-		port: 8888,
-		host: 'localhost',
-		verbose: 1,
-		glob: [
-			// All JS files in `sourceDirToWatch` and subdirectories
-			'**/*.js',
-			// All CSS files in `sourceDirToWatch` and subdirectories
-			'**/*.css'
-		]},
-		function resolver(filepath, callback) {
-		callback({
-			resourceURL: filepath,
-			// any string-ish value is acceptable. i.e. strings, Buffers etc.
-			contents: fs.readFileSync('public/' + filepath)
-			});
-	})
-}

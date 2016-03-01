@@ -1,3 +1,5 @@
+"use strict";
+
 var serve = require('koa-static');
 var views = require('koa-views');
 var mount = require('koa-mount');
@@ -8,8 +10,23 @@ var app = module.exports = koa();
 app.use(serve('public'));
 
 app.use(views('views', {
-  default: 'jade'
+  extension: 'jade'
 }));
 
-app.use(mount('/', index));
+function logger(format) {
+  format = format || ':method ":url"';
 
+  return function *(next){
+    var str = format
+      .replace(':method', this.method)
+      .replace(':url', this.url);
+
+    console.log(str);
+
+    yield next;
+  }
+}
+app.use(logger());
+app.use(logger(':method :url'));
+
+app.use(mount('/', index));
