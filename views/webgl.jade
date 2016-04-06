@@ -3,8 +3,11 @@ extends layout
 block content
   h1 WebGL
   div(id="context")
+  canvas#expertimentalCanvas(style="border: none;" width="500" height="500")
+
   
 
 block scripts
   script(src="//cdnjs.cloudflare.com/ajax/libs/fetch/0.11.0/fetch.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.3.2/gl-matrix.js")
   script(src="javascripts/webgl.js")
