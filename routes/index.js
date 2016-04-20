@@ -1,13 +1,11 @@
-var koa = require('koa');
+var koa = require('koa')
 
-var app = koa();
+var app = koa()
 
-app.use(function* (next) {
-
+app.use(function * (next) {
   yield this.render('index', {
     title: 'Koa'
-  });
+  })
+})
 
-});
-
-module.exports = app;
+module.exports = app
