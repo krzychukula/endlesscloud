@@ -2,17 +2,10 @@
 // index.js
 var glslify = require('glslify')
 
-var src = glslify(__dirname + '/../shader.glsl')
-
-console.log(src)
-
-
-window.fetch('/shader.glsl')
-  .then(function (response) {
-    return response.text()
-  }).then(function (body) {
-    console.log(body)
-  })
+/* ========================= SHADERS ========================= */
+/* jshint multistr: true */
+var shader_vertex_source = glslify(__dirname + '/vertex.glsl')
+var shader_fragment_source = glslify(__dirname + '/fragment.glsl')
 
 var main = function () {
   // from http://www.webglacademy.com/courses.php?courses=0|1|20|2|3|4|23|5|6|7|10#1
@@ -26,26 +19,6 @@ var main = function () {
     window.alert('You are not webgl compatible :(')
     return false
   }
-
-  /* ========================= SHADERS ========================= */
-  /* jshint multistr: true */
-  var shader_vertex_source = `
-    attribute vec2 position //the position of the point
-    attribute vec3 color  //the color of the point
-
-    varying vec3 vColor
-    void main(void) { //pre-built function
-    gl_Position = vec4(position, 0., 1.) //0. is the z, and 1 is w
-    vColor=color
-    }`
-
-  var shader_fragment_source = `
-    precision mediump float
-
-    varying vec3 vColor
-    void main(void) {
-    gl_FragColor = vec4(vColor, 1.)
-  }`
 
   var get_shader = function (source, type, typeString) {
     var shader = GL.createShader(type)
