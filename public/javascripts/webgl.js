@@ -4,8 +4,8 @@ var glslify = require('glslify')
 
 /* ========================= SHADERS ========================= */
 /* jshint multistr: true */
-var shader_vertex_source = glslify(__dirname + '/vertex.glsl')
-var shader_fragment_source = glslify(__dirname + '/fragment.glsl')
+var shader_vertex_source = glslify(__dirname + '/first.vert')
+var shader_fragment_source = glslify(__dirname + '/first.frag')
 
 var main = function () {
   // from http://www.webglacademy.com/courses.php?courses=0|1|20|2|3|4|23|5|6|7|10#1

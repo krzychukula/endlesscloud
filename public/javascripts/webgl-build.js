@@ -5,7 +5,7 @@
 
 /* ========================= SHADERS ========================= */
 /* jshint multistr: true */
-var shader_vertex_source = "#define GLSLIFY 1\nattribute vec2 position;\nattribute vec3 color;\n\nvarying vec3 vColor;\n\nvoid main() {\n  gl_Position = vec4(position, 0.0, 1.0)\n  vColor = color\n}\n"
+var shader_vertex_source = "#define GLSLIFY 1\nattribute vec2 position;\nattribute vec3 color;\n\nvarying vec3 vColor;\n\nvoid main() {\n  gl_Position = vec4(position, 0.0, 1.0);\n  vColor = color;\n}\n"
 var shader_fragment_source = "precision mediump float;\n#define GLSLIFY 1\n\nvarying vec3 vColor\nvoid main(void) {\n  gl_FragColor = vec4(vColor, 1.0);\n}\n"
 
 var main = function () {
