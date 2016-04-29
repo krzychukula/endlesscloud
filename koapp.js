@@ -11,7 +11,7 @@ var app = module.exports = koa()
 app.use(serve('public'))
 
 app.use(views('views', {
-  extension: 'jade'
+  extension: 'pug'
 }))
 
 function logger (format) {
