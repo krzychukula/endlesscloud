@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "engines": {
-    "node": "5.7.0"
+    "node": "6.1.0"
   },
   "scripts": {
     "start": "DEBUG=koa-views node bin/koawww",
