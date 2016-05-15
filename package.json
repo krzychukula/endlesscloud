@@ -6,7 +6,8 @@
     "node": "6.1.0"
   },
   "scripts": {
-    "start": "DEBUG=koa-views node bin/koawww",
+    "server": "DEBUG=koa-views node bin/koawww",
+      "start": "concurrently --kill-others 'npm run server' 'npm run watchify'",
     "test": "echo 'no test yet';",
     "outdated": "npm outdated --depth 0",
     "watchify": "watchify -t glslify public/javascripts/webgl.js -o public/javascripts/webgl-build.js",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "browserify": "^13.0.0",
+    "concurrently": "^2.1.0",
     "glslify": "^5.0.2",
     "watchify": "^3.7.0"
   }

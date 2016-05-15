@@ -25,7 +25,7 @@ var main = function () {
     GL.shaderSource(shader, source)
     GL.compileShader(shader)
     if (!GL.getShaderParameter(shader, GL.COMPILE_STATUS)) {
-      window.alert('ERROR IN ' + typeString + ' SHADER : ' + GL.getShaderInfoLog(shader))
+      console.error('ERROR IN ' + typeString + ' SHADER : ' + GL.getShaderInfoLog(shader))
       return false
     }
     return shader
