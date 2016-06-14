@@ -10,7 +10,7 @@ var app = module.exports = koa()
 
 app.use(serve('public'))
 
-app.use(views('views', {
+app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
 
@@ -27,7 +27,7 @@ function logger (format) {
     yield next
   }
 }
-app.use(logger())
+
 app.use(logger(':method :url'))
 
 app.use(mount('/webgl', webgl))
