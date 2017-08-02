@@ -1,1 +1,1 @@
-web: node ./bin/koawww
+web: node ./bin/www

@@ -6,7 +6,7 @@
     "node": "8.2.1"
   },
   "scripts": {
-    "server": "DEBUG=koa-views node bin/koawww",
+    "server": "DEBUG=koa-views node bin/www",
     "start": "concurrently --kill-others 'npm run server' 'npm run watchify'",
     "test": "echo 'no test yet';",
     "outdated": "npm outdated --depth 0",
