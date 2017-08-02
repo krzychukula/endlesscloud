@@ -1,9 +1,9 @@
-var koa = require('koa')
+var Koa = require('koa')
 
-var app = koa()
+var app = new Koa()
 
-app.use(function * (next) {
-  yield this.render('index', {
+app.use(async function (ctx, next) {
+  await ctx.render('index', {
     title: 'Koa'
   })
 })

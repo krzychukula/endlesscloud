@@ -1,10 +1,9 @@
-var koa = require('koa')
-// var mount = require('koa-mount')
+var Koa = require('koa')
 
-var app = koa()
+var app = new Koa()
 
-app.use(function * (next) {
-  yield this.render('webgl', {
+app.use(async function (ctx, next) {
+  await ctx.render('webgl', {
     title: 'WebGL'
   })
 })

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-var app = require('../koapp');
+const http = require('http')
+const app = require('../koapp');
 
-var server = app.listen(process.env.PORT || 3000, function() {
-  console.log('Koa server listening on port ' + server.address().port);
-});
+http.createServer(app.callback()).listen(process.env.PORT || 3000);

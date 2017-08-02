@@ -1,12 +1,24 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+module.exports = function(strings) {
+  if (typeof strings === 'string') strings = [strings]
+  var exprs = [].slice.call(arguments,1)
+  var parts = []
+  for (var i = 0; i < strings.length-1; i++) {
+    parts.push(strings[i], exprs[i] || '')
+  }
+  parts.push(strings[i])
+  return parts.join('')
+}
+
+},{}],2:[function(require,module,exports){
 
 // index.js
-
+var glslify = require('glslify')
 
 /* ========================= SHADERS ========================= */
 /* jshint multistr: true */
-var shader_vertex_source = "#define GLSLIFY 1\nattribute vec2 position;\nattribute vec3 color;\n\nvarying vec3 vColor;\n\nvoid main() {\n  gl_Position = vec4(position, 0.0, 1.0);\n  vColor = color;\n}\n"
-var shader_fragment_source = "precision mediump float;\n#define GLSLIFY 1\n\nvarying vec3 vColor;\nvoid main(void) {\n  gl_FragColor = vec4(vColor, 1.0);\n}\n"
+var shader_vertex_source = glslify(["#define GLSLIFY 1\nattribute vec2 position;\nattribute vec3 color;\n\nvarying vec3 vColor;\n\nvoid main() {\n  gl_Position = vec4(position, 0.0, 1.0);\n  vColor = color;\n}\n"])
+var shader_fragment_source = glslify(["precision mediump float;\n#define GLSLIFY 1\n\nvarying vec3 vColor;\nvoid main(void) {\n  gl_FragColor = vec4(vColor, 1.0);\n}\n"])
 
 var main = function () {
   // from http://www.webglacademy.com/courses.php?courses=0|1|20|2|3|4|23|5|6|7|10#1
@@ -97,4 +109,4 @@ document.addEventListener('DOMContentLoaded', function (event) {
   main()
 })
 
-},{}]},{},[1]);
+},{"glslify":1}]},{},[2]);
